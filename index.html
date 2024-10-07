@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+      .add {
+        width: 90px;
+        height: 40px;
+        background-color: green;
+        color: white;
+        font-size: 30px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 5px;
+      }
+      .counter {
+        width: 90px;
+        height: 40px;
+        background-color: pink;
+        color: white;
+        font-size: 30px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 5px;
+      }
+      .substract {
+        width: 90px;
+        height: 40px;
+        background-color: green;
+        color: white;
+        font-size: 30px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Counter App</h2>
+    <div class="wrapper">
+      <div class="add">+</div>
+      <div class="counter">0</div>
+      <div class="substract">-</div>
+    </div>
+    <script>
+      const add = document.querySelector(".add");
+      const counterEl = document.querySelector(".counter");
+      const substract = document.querySelector(".substract");
+      let counter = 0;
+      add.addEventListener("click", () => {
+        counter = counter + 1;
+        counterEl.innerHTML = counter;
+      });
+      substract.addEventListener("click", () => {
+        if (counter > 0) counter = counter - 1;
+        counterEl.innerHTML = counter;
+      });
+    </script>
+  </body>
+</html>

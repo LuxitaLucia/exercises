@@ -11,7 +11,7 @@
       .wrapper {
         display: flex;
         justify-content: center;
-        gap: 50px;
+        gap: 40px;
       }
       .add {
         width: 90px;
@@ -46,6 +46,17 @@
         margin-top: 20px;
         padding-top: 5px;
       }
+      .reset {
+        width: 90px;
+        height: 40px;
+        background-color: green;
+        color: white;
+        font-size: 18px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 80px;
+        padding-top: 5px;
+      }
     </style>
   </head>
   <body>
@@ -54,11 +65,14 @@
       <div class="add">+</div>
       <div class="counter">0</div>
       <div class="substract">-</div>
+      <div class="reset">Reset</div>
     </div>
+
     <script>
       const add = document.querySelector(".add");
       const counterEl = document.querySelector(".counter");
       const substract = document.querySelector(".substract");
+      const reset = document.querySelector(".reset");
       let counter = 0;
       add.addEventListener("click", () => {
         counter = counter + 1;
@@ -66,6 +80,10 @@
       });
       substract.addEventListener("click", () => {
         if (counter > 0) counter = counter - 1;
+        counterEl.innerHTML = counter;
+      });
+      reset.addEventListener("click", () => {
+        counter = 0;
         counterEl.innerHTML = counter;
       });
     </script>

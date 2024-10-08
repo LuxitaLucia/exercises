@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn {
+        background-color: aqua;
+        display: inline-block;
+        padding: 8px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: coral;
+      }
+      .modal {
+        background-color: gray;
+        position: fixed;
+        inset: 0;
+        margin: 100px;
+        border-radius: 10px;
+        padding: 20px;
+        display: none;
+      }
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: red;
+        padding: 5px;
+        color: white;
+        cursor: pointer;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn">Click here to open</div>
+    <div class="modal">
+      <div class="close">X</div>
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ipsum
+        nesciunt odit expedita suscipit natus saepe quas eaque esse facere? Nemo
+        sequi, modi a ab accusamus dolorem. Reprehenderit, sed vero!
+      </div>
+    </div>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos fugiat
+      voluptatum cumque, molestias maxime quia nisi animi laudantium nostrum
+      natus, similique eaque sit placeat distinctio laborum. Quae nulla nostrum
+      debitis.
+    </p>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      const modal = document.querySelector(".modal");
+      const close = document.querySelector(".close");
+      btn.addEventListener("click", () => {
+        modal.classList.add("show");
+      });
+      close.addEventListener("click", () => {
+        modal.classList.remove("show");
+      });
+    </script>
+  </body>
+</html>

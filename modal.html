@@ -23,6 +23,7 @@
         border-radius: 10px;
         padding: 20px;
         display: none;
+        cursor: pointer;
       }
       .close {
         position: absolute;
@@ -32,6 +33,13 @@
         padding: 5px;
         color: white;
         cursor: pointer;
+      }
+
+      .coin {
+        display: none;
+      }
+      .it-image {
+        display: none;
       }
       .show {
         display: block;
@@ -47,6 +55,14 @@
         nesciunt odit expedita suscipit natus saepe quas eaque esse facere? Nemo
         sequi, modi a ab accusamus dolorem. Reprehenderit, sed vero!
       </div>
+      <img
+        class="it-image show"
+        style="margin-top: 30px"
+        src="BG.jpg"
+        alt="it-photo"
+        width="350"
+      />
+      <img class="coin" src="coin.jpeg" alt="" width="350" />
     </div>
     <p>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos fugiat
@@ -64,6 +80,17 @@
       });
       close.addEventListener("click", () => {
         modal.classList.remove("show");
+      });
+
+      const itImg = document.querySelector(".it-image");
+      const coin = document.querySelector(".coin");
+      itImg.addEventListener("click", () => {
+        itImg.classList.remove("show");
+        coin.classList.add("show");
+      });
+      coin.addEventListener("click", () => {
+        coin.classList.remove("show");
+        itImg.classList.add("show");
       });
     </script>
   </body>

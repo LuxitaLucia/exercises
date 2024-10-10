@@ -20,15 +20,32 @@
         border-radius: 10px;
         cursor: pointer;
       }
+      .circle{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: beige;
+        border-radius: 50%;
+        font-size: 40px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+        
+      }
     </style>
   </head>
   <body>
     <div class="square" style="background-color: rgb(0, 255, 0)"></div>
     <div class="btn">Random Color</div>
 
+    <div class="circle">xxx</div>
+
     <script>
       const btn = document.querySelector(".btn");
       const square = document.querySelector(".square");
+      const circle = document.querySelector('.circle')
       let red = 255;
       let green = 0;
       let blu = 0;
@@ -38,6 +55,9 @@
         blu = Math.round(Math.random() * 255);
 
         square.style.backgroundColor = `rgb(${red},${green},${blu})`;
+        circle.style.backgroundColor = `rgb(${red},${green},${blu})`;
+
+
       });
     </script>
   </body>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guesser</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      label {
+        display: flex;
+        justify-content: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>I'm thinking of a number, try to guess it</h1>
+    <div class="wrapper">
+      <label>
+        <span>Your number:</span>
+        <input type="number" value="1" min="1" max="1000" />
+      </label>
+      <button>Try</button>
+    </div>
+
+    <h2></h2>
+    <script>
+      const output = document.querySelector("h2");
+      const guess = document.querySelector("input");
+      const btn = document.querySelector("button");
+      const nr = Math.round(Math.random() * 999) + 1;
+      btn.addEventListener("click", () => {
+        const usernumber = Number(guess.value);
+        if (nr == usernumber) {
+          output.innerHTML = "You guessed corectly !";
+        } else if (nr > usernumber) {
+          output.innerHTML = "My number is biger";
+        } else {
+          output.innerHTML = "My number is smaller";
+        }
+      });
+    </script>
+  </body>
+</html>

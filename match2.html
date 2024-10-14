@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-width: 600px;
+        gap: 10px;
+        margin: 0 auto;
+      }
+      .wrapper div {
+        background-color: green;
+        font-size: 60px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        transition: background-color 0.4s ease-in-out;
+      }
+      .wrapper .cover {
+        background-color: blue;
+      }
+      span {
+        margin: 10px;
+        opacity: 1;
+        transition: opacity 0.4s ease-in-out;
+      }
+      .cover span {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Match 2 to win</h1>
+    <div class="wrapper"></div>
+    <h2></h2>
+
+    <script>
+      const emojis = ["🦓", "🏌️‍♀️", "📯", "☘️", "🦄", "🐆", "☀️", "😟"];
+      const wrapper = document.querySelector(".wrapper");
+      const output = document.querySelector("h2");
+      wrapper.innerHTML = [...emojis, ...emojis]
+        .reduce((acc, e) => {
+          const rnd = Math.round(Math.random() * acc.length);
+          return [...acc.slice(0, rnd), e, ...acc.slice(rnd)];
+        }, [])
+        .map((e) => {
+          return `<div class="cover"><span>${e}</span></div>`;
+        })
+        .join("");
+
+      const cards = document.querySelectorAll(".wrapper div");
+      let firstCard = null;
+      let secondCard = null;
+
+      for (const card of cards) {
+        card.addEventListener("click", () => {
+          if (firstCard && secondCard) {
+            return;
+          }
+          card.classList.remove("cover");
+          if (firstCard == null) {
+            firstCard = card;
+          } else if (secondCard == null) {
+            secondCard = card;
+          }
+          if (firstCard && secondCard) {
+            setTimeout(() => {
+              if (firstCard.innerHTML !== secondCard.innerHTML) {
+                firstCard.classList.add("cover");
+                secondCard.classList.add("cover");
+              }
+              firstCard = null;
+              secondCard = null;
+              if (document.querySelectorAll(".cover").length == 0) {
+                output.innerHTML = "You win";
+              }
+            }, 300);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

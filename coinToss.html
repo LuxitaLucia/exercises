@@ -47,7 +47,10 @@
       let tails = 0;
 
       const tossCoin = () => {
-        if (Math.random() > 0.5) heads++;
+        if (heads == 1000 || tails == 1000) {
+          return;
+        }
+        if (Math.random() > 0.999) heads++;
         else tails++;
 
         headsEl.innerHTML = heads;
@@ -63,7 +66,7 @@
 
       setInterval(() => {
         if (start) tossCoin();
-      }, 100);
+      }, 10);
     </script>
   </body>
 </html>

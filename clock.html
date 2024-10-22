@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex justify-center items-center h-screen">
+      <div id="clock" class="text-[60px]"></div>
+    </div>
+
+    <script>
+      const clock = document.getElementById("clock");
+
+      setInterval(() => {
+        const time = Date.now();
+        const totalSec = Math.floor(time / 1000);
+        const totalMinutes = Math.floor(totalSec / 60);
+        const totalHours = Math.floor(totalMinutes / 60);
+        let seconds = totalSec % 60;
+        let minutes = totalMinutes % 60;
+        let hours = (totalHours + 2) % 24;
+
+        const ampm = hours < 12 ? "AM" : "PM";
+        if (hours > 12) {
+          hours -= 12;
+        }
+
+        if (seconds < 10) {
+          seconds = `0${seconds}`;
+        }
+
+        if (minutes < 10) {
+          minutes = `0${minutes}`;
+        }
+
+        if (hours < 10) {
+          hours = `0${hours}`;
+        }
+
+        clock.innerHTML = `${hours}:${minutes}:${seconds}  ${ampm}`;
+      }, 1000);
+    </script>
+  </body>
+</html>

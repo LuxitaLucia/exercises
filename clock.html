@@ -15,7 +15,7 @@
       </select>
 
       <div id="clock" class="text-[60px]"></div>
-      <div class="w-96 h-96 bg-blue-800 rounded-full relative">
+      <div class="w-96 h-96 bg-blue-800 rounded-full relative cursor-pointer">
         <div class="absolute text-3xl top-[2%] left-[47%] text-white">12</div>
 
         <div class="absolute text-3xl top-[7%] right-[25%] text-white">1</div>
@@ -28,7 +28,7 @@
 
         <div class="absolute text-3xl top-[83%] right-[22%] text-white">5</div>
 
-        <div class="absolute text-3xl top-[90%] left-[47%] text-white">6</div>
+        <div class="absolute text-3xl top-[90%] left-[48%] text-white">6</div>
 
         <div class="absolute text-3xl top-[83%] left-[22%] text-white">7</div>
 
@@ -40,7 +40,27 @@
 
         <div class="absolute text-3xl top-[7%] left-[25%] text-white">11</div>
 
-        <div class="absolute text-3xl top-[44%] left-[48%] text-white">o</div>
+        <div
+          id="center-dot"
+          class="absolute text-3xl top-[44%] left-[48%] text-white"
+        >
+          o
+        </div>
+
+        <div>
+          <div
+            id="hand hour-hand"
+            
+          ></div>
+          <div
+            id="hand minute-hand"
+            class="w-[4px] h-[130px] mt-[12%] ml-[50%] bg-black"
+          ></div>
+          <div
+            id="hand second-hand"
+            class="w-[3px] h-[135px] bg-black mt-[8%] ml-[50%]"
+          ></div>
+        </div>
       </div>
     </div>
 

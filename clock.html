@@ -41,26 +41,29 @@
         <div class="absolute text-3xl top-[7%] left-[25%] text-white">11</div>
 
         <div
-          id="center-dot"
+          id="center"
           class="absolute text-3xl top-[44%] left-[48%] text-white"
         >
           o
         </div>
 
-        <div>
-          <div
-            id="hand hour-hand"
-            
-          ></div>
-          <div
-            id="hand minute-hand"
-            class="w-[4px] h-[130px] mt-[12%] ml-[50%] bg-black"
-          ></div>
-          <div
-            id="hand second-hand"
-            class="w-[3px] h-[135px] bg-black mt-[8%] ml-[50%]"
-          ></div>
-        </div>
+        <div
+          style="transform: rotate(45deg)"
+          id="hour-hand"
+          class="absolute w-[4px] h-[130px] bg-red-600 bottom-[50%] left-[50%] origin-bottom"
+        ></div>
+
+        <div
+          style="transform: rotate(90deg)"
+          id="minutes-hand"
+          class="absolute w-[4px] h-[130px] bg-green-700 bottom-[50%] left-[50%] origin-bottom"
+        ></div>
+
+        <div
+          style="transform: rotate(270deg)"
+          id="second-hand"
+          class="absolute w-[4px] h-[130px] bg-yellow-300 bottom-[50%] left-[50%] origin-bottom"
+        ></div>
       </div>
     </div>
 
@@ -68,6 +71,10 @@
       const clock = document.getElementById("clock");
       const timeZoneEl = document.getElementById("timeZone");
       let timeZone = 2;
+
+      const hourHand = document.getElementById("hour-hand");
+      const minutesHand = document.getElementById("minutes-hand");
+      const secondHand = document.getElementById("second-hand");
 
       timeZoneEl.addEventListener("change", () => {
         if (timeZoneEl.value == "it") {
@@ -89,6 +96,10 @@
         let seconds = totalSec % 60;
         let minutes = totalMinutes % 60;
         let hours = (totalHours + timeZone) % 24;
+
+        secondHand.style.transform = `rotate(${6 * seconds}deg)`;
+        minutesHand.style.transform = `rotate(${6 * minutes}deg)`;
+        hourHand.style.transform = `rotate(${30 * hours}deg)`;
 
         const ampm = hours < 12 ? "AM" : "PM";
         if (hours > 12) {

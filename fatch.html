@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="h-screen flex items-center justify-center flex-col gap-4">
+      <img
+        id="dogimage"
+        class="w-[250px] rounded-lg"
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fb6%2F98%2F96%2Fb69896d5640d5c1205c6234b099b52e8.png&f=1&nofb=1&ipt=7600791b5378e40171eaa58c4a7c8dabc65b7134bbf596dba39315fb3595bfac&ipo=images"
+        alt="dog image"
+      />
+
+      <div
+        id="button"
+        class="text-center bg-green-600 cursor-pointer rounded-lg text-2xl text-white p-6 hover:bg-green-800"
+      >
+        Fatch
+      </div>
+    </div>
+
+    <script>
+      const dogimage = document.getElementById("dogimage");
+      const button = document.getElementById("button");
+
+      button.addEventListener("click", async () => {
+        const rs = await fetch("https://dog.ceo/api/breeds/image/random");
+        const data = await rs.json();
+        dogimage.src = data.message;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-wrap gap-4 justify-center mt-4" id="output"></div>
+
+    <div
+      class="mim-h-screen w-screen absolute bg-white top-0 hidden"
+      id="modal"
+    >
+      <div
+        class="fixed top-4 right-8 bg-green-700 text-white p-4 cursor-pointer text-2xl"
+        id="close"
+      >
+        X
+      </div>
+      <div
+        class="flex flex-wrap gap-5 mt-10 justify-around"
+        id="modal-content"
+      ></div>
+    </div>
+    <script>
+      const modalEl = document.getElementById("modal");
+      const modalContentEl = document.getElementById("modal-content");
+
+      var openModal = (images) => {
+        modalContentEl.innerHTML = images
+          .map((image) => {
+            return `
+                <img class="w-[300px] h-[300px] object-cover" src="${image}"></img>
+                `;
+          })
+          .join("");
+        modalEl.classList.remove("hidden");
+      };
+    </script>
+    <script type="module">
+      const output = document.getElementById("output");
+      const modal = document.getElementById("modal");
+      const close = document.getElementById("close");
+      const modalContent = document.getElementById("modal-content");
+
+      close.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+
+      const rs = await fetch("https://dog.ceo/api/breeds/list/all");
+      const data = await rs.json();
+      const breeds = Object.keys(data.message);
+      output.innerHTML = (
+        await Promise.all(
+          breeds.map(async (bread) => {
+            const rs = await fetch(`https://dog.ceo/api/breed/${bread}/images`);
+            const data = await rs.json();
+            return `<div onClick="openModal([${data.message.map((image) => {
+              return `'${image}'`;
+            })}])" class="w-[300px] bg-red-500 flex flex-col justify-between gap-5  rounded-lg overflow-hidden ">
+                <img class="w-[300px] h-[300px] object-cover" src="${
+                  data.message[0]
+                }"></img>
+                <div class="capitalize p-4 text-center text-2xl text-white">
+                ${bread}
+                </div>
+                </div>`;
+          })
+        )
+      ).join("");
+    </script>
+  </body>
+</html>

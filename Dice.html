@@ -8,7 +8,100 @@
   </head>
   <body>
     <div class="text-center text-2xl mt-4">Dice roll</div>
-    <div id="result" class="text-center my-4">2</div>
+    <div class="my-6">
+      <!-- fata 1 -->
+      <div id="fata1" class="justify-center items-center hidden">
+        <div
+          class="w-36 h-36 border-black border-4 flex justify-center items-center"
+        >
+          <div class="w-7 h-7 rounded-full bg-black"></div>
+        </div>
+      </div>
+      <!-- fata 2 -->
+      <div id="fata2" class="justify-center items-center hidden">
+        <div
+          class="w-36 h-36 border-black border-4 flex justify-between flex-col p-4"
+        >
+          <div class="flex justify-end">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+
+          <div><div class="w-7 h-7 rounded-full bg-black"></div></div>
+        </div>
+      </div>
+      <!-- fata 3 -->
+      <div id="fata3" class="hidden justify-center items-center">
+        <div
+          class="w-36 h-36 border-black border-4 flex justify-between flex-col p-4"
+        >
+          <div class="flex justify-end">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+          <div class="flex justify-center">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+
+          <div><div class="w-7 h-7 rounded-full bg-black"></div></div>
+        </div>
+      </div>
+      <!-- fata 4 -->
+      <div id="fata4" class="hidden justify-center items-center">
+        <div
+          class="w-36 h-36 border-black border-4 flex justify-between flex-col p-4"
+        >
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+        </div>
+      </div>
+      <!-- fata 5 -->
+      <div id="fata5" class="hidden justify-center items-center">
+        <div
+          class="w-36 h-36 border-black border-4 flex justify-between flex-col p-4"
+        >
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+
+          <div class="flex justify-center">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+        </div>
+      </div>
+      <!-- fata 6 -->
+      <div id="fata6" class="hidden justify-center items-center">
+        <div
+          class="w-36 h-36 border-black border-4 flex justify-between flex-col p-4"
+        >
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+
+          <div class="flex justify-between">
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+            <div class="w-7 h-7 rounded-full bg-black"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="flex justify-center">
       <div
         id="button"
@@ -20,10 +113,59 @@
 
     <script>
       const button = document.getElementById("button");
-      const result = document.getElementById("result");
+      const fata1 = document.getElementById("fata1");
+      const fata2 = document.getElementById("fata2");
+      const fata3 = document.getElementById("fata3");
+      const fata4 = document.getElementById("fata4");
+      const fata5 = document.getElementById("fata5");
+      const fata6 = document.getElementById("fata6");
+      const hideAll = () => {
+        fata1.classList.remove("flex");
+        fata1.classList.add("hidden");
+
+        fata2.classList.remove("flex");
+        fata2.classList.add("hidden");
+
+        fata3.classList.remove("flex");
+        fata3.classList.add("hidden");
+
+        fata4.classList.remove("flex");
+        fata4.classList.add("hidden");
+
+        fata5.classList.remove("flex");
+        fata5.classList.add("hidden");
+
+        fata6.classList.remove("flex");
+        fata6.classList.add("hidden");
+      };
 
       button.addEventListener("click", () => {
-        result.innerHTML = Math.round(Math.random() * 5) + 1;
+        const nr = Math.round(Math.random() * 5) + 1;
+        hideAll();
+        if (nr == 1) {
+          fata1.classList.add("flex");
+          fata1.classList.remove("hidden");
+        }
+        if (nr == 2) {
+          fata2.classList.add("flex");
+          fata2.classList.remove("hidden");
+        }
+        if (nr == 3) {
+          fata3.classList.add("flex");
+          fata3.classList.remove("hidden");
+        }
+        if (nr == 4) {
+          fata4.classList.add("flex");
+          fata4.classList.remove("hidden");
+        }
+        if (nr == 5) {
+          fata5.classList.add("flex");
+          fata5.classList.remove("hidden");
+        }
+        if (nr == 6) {
+          fata6.classList.add("flex");
+          fata6.classList.remove("hidden");
+        }
       });
     </script>
   </body>

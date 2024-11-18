@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>taxes</title>
+    <style>
+        body{
+            margin:0;
+        }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.0.0/apexcharts.min.js"
+      integrity="sha512-f82EGNY/Wwa6E9g6tKFHoyiaytlgfd0g5gfaOJjSIF6k5T7vqmWrP83iXZdUZoc0DvO3kR4jRpmAZUBt5MhBbA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      const minimumIncome = 3300;
+      const start = 35;
+      const max = 1500;
+      const step = 500;
+
+      const calculateTax = (income) => {
+        return income * 0.1;
+      };
+
+      const calculateCas = (income) => {
+        if (income < 12 * minimumIncome) return 0;
+        if (income >= 12 * minimumIncome && income <= 24 * minimumIncome)
+          return 12 * minimumIncome * 0.25;
+        if (income > 24 * minimumIncome) return 24 * minimumIncome * 0.25;
+      };
+
+      const calculateCass = (income) => {
+        if (income < 6 * minimumIncome) return 6 * minimumIncome * 0.1;
+        if (income >= 6 * minimumIncome && income <= 60 * minimumIncome)
+          return income * 0.1;
+        if (income > 60 * minimumIncome) return 60 * minimumIncome * 0.1;
+      };
+
+      const calculateIncomeTax = (income) => {
+        const i = (income - calculateCas(income) - calculateCass(income)) * 0.1;
+
+        return i < 0 ? 0 : i;
+      };
+
+      const calculateTotalTax = (income) => {
+        return (
+          calculateIncomeTax(income) +
+          calculateCas(income) +
+          calculateCass(income)
+        );
+      };
+
+      const calculateTaxProcentaje = (income) => {
+        const totalTax = calculateTotalTax(income);
+        const taxProcentje = Math.round((totalTax / income) * 10000) / 100;
+        return taxProcentje;
+      };
+
+      var options = {
+        series: [
+          {
+            name: "Venit",
+            data: Array(max)
+              .fill(null)
+              .map((v, i) => (i + start) * step).map(i=>Math.round(i/5)),
+          },
+          {
+            name: "CAS",
+            data: Array(max)
+              .fill(null)
+              .map((v, i) => calculateCas((i + start) * step)).map(i=>Math.round(i/5)),
+          },
+          {
+            name: "CASS",
+            data: Array(max)
+              .fill(null)
+              .map((v, i) => calculateCass((i + start) * step)).map(i=>Math.round(i/5)),
+          },
+          {
+            name: "IMPOZIT PE VENIT",
+            data: Array(max)
+              .fill(null)
+              .map((v, i) => calculateIncomeTax((i + start) * step)).map(i=>Math.round(i/5)),
+          },
+          {
+            name: "Taxe Totale",
+            data: Array(max)
+              .fill(null)
+              .map((v, i) => calculateTotalTax((i + start) * step)).map(i=>Math.round(i/5)),
+          },
+          {
+            name: "Procent Taxe",
+            data: Array(max)
+              .fill(null)
+              .map((v, i) => calculateTaxProcentaje((i + start) * step)),
+          },
+        ],
+        chart: {
+          type: "area",
+          height: 600,
+          zoom: {
+            enabled: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "straight",
+        },
+
+        title: {
+          text: "Taxe pfa romania",
+          align: "left",
+        },
+        // labels: Array(max)
+        //   .fill(null)
+        //   .map((v, i) => (i + start) * step).map(i=>Math.round(i/5)),
+        // xaxis: {
+        //   type: "datetime",
+        // },
+        yaxis: {
+          opposite: true,
+        },
+        legend: {
+          horizontalAlign: "left",
+        },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>

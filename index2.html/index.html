@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Developer</title>
+    <title>Dabu Luxita</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module">
       import tailwindConfig from "/tailwind.config.js";
@@ -12,6 +12,10 @@
     <style>
       .show {
         display: block;
+      }
+
+      .hidden {
+        display: none;
       }
     </style>
   </head>
@@ -94,60 +98,58 @@
       </div>
     </div>
 
-    <div class="flex justify-center items-center gap-10 flex-col md:flex-row">
-      <div>
-        <div
-          id="btn"
-          class="w-[150px] h-[50px] bg-cyan-600 inline-block text-white rounded-xl cursor-pointer text-center"
-        >
-          Click here to open
-        </div>
-
-        <div
-          id="modal"
-          class="bg-gray-400 fixed inset-0 m-[100px] rounded-xl p-5 hidden cursor-pointer"
-        >
-          <div
-            id="close"
-            class="absolute mt-0 mr-0 bg-red-500 p-2 text-white cursor-pointer"
-          >
-            X
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ullam
-            autem eius earum molestiae? Repudiandae eaque a cum incidunt cumque
-            labore autem sequi consectetur laudantium quis, alias beatae
-            consequatur molestiae!
-          </div>
-        </div>
+    <div class="flex justify-center text-white">
+      <div
+        id="btn"
+        class="bg-cyan-600 inline-block text-white rounded-xl cursor-pointer p-6"
+      >
+        Click here to open
       </div>
 
       <div
-        class="w-[150px] h-[50px] bg-cyan-600 text-white flex justify-center items-center"
+        id="modal"
+        class="bg-slate-400 fixed inset-0 m-[100px] rounded-xl p-5 hidden cursor-pointer"
       >
-        2
-      </div>
-      <div
-        class="w-[150px] h-[50px] bg-cyan-600 text-white flex justify-center items-center"
-      >
-        3
-      </div>
-      <div
-        class="w-[150px] h-[50px] bg-cyan-600 text-white flex justify-center items-center"
-      >
-        4
+        <div
+          id="close"
+          class="absolute top-2 right-2 bg-slate-500 p-2 text-white cursor-pointer"
+        >
+          X
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ullam
+          autem eius earum molestiae? Repudiandae eaque a cum incidunt cumque
+          labore autem sequi consectetur laudantium quis, alias beatae
+          consequatur molestiae!
+        </div>
+        <img src="BG.jpg" alt="it-photo" class="w-20 mt-4" />
       </div>
     </div>
+
+    <div class="flex flex-wrap justify-around p-7">
+      <div
+        class="w-[150px] h-[50px] bg-cyan-600 text-white flex justify-center items-center"
+      ></div>
+      <div
+        class="w-[150px] h-[50px] bg-cyan-600 text-white flex justify-center items-center"
+      ></div>
+      <div
+        class="w-[150px] h-[50px] bg-cyan-600 text-white flex justify-center items-center"
+      ></div>
+    </div>
+
     <script>
       const btn = document.getElementById("btn");
       const modal = document.getElementById("modal");
       const close = document.getElementById("close");
 
       btn.addEventListener("click", () => {
+        modal.classList.remove("hidden");
         modal.classList.add("show");
       });
       close.addEventListener("click", () => {
         modal.classList.remove("show");
+        modal.classList.add("hidden");
       });
     </script>
   </body>

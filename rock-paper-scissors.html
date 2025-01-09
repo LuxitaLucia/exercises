@@ -4,48 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      h1 {
-        text-align: center;
-        color: blue;
-      }
-      .btn {
-        background-color: #2563eb;
-        padding: 10px;
-        font-size: 40px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .btn:hover {
-        background-color: #60a5fa;
-      }
-      .wrapper {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }
-      h2 {
-        text-align: center;
-        margin-top: 30px;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import tailwindConfig from "/tailwind.config.js";
+      tailwind.config = tailwindConfig;
+    </script>
   </head>
-  <body>
-    <h1>Rock Paper Scissors</h1>
+  <body class="font-body">
+    <div class="flex justify-center p-16 bg-slate-300">
+      <div>
+        <h1 class="p-5 text-center text-blue-800 text-3xl font-bold">
+          Rock Paper Scissors
+        </h1>
 
-    <div class="wrapper">
-      <div id="rock" class="btn">✊</div>
-      <div id="paper" class="btn">✋</div>
-      <div id="scissors" class="btn">✌️</div>
+        <div class="flex justify-center gap-10 p-10">
+          <div
+            id="rock btn"
+           
+            class="bg-blue-700 p-4 text-4xl rounded-lg cursor-pointer hover:bg-blue-500"
+          >
+            ✊
+          </div>
+          <div
+            id="paper btn"
+           
+            class="bg-blue-700 p-4 text-4xl rounded-lg cursor-pointer hover:bg-blue-500"
+          >
+            ✋
+          </div>
+          <div
+            id="scissors btn"
+           
+            class="bg-blue-700 p-4 text-4xl rounded-lg cursor-pointer hover:bg-blue-500"
+          >
+            ✌️
+          </div>
+        </div>
+
+        <h2 class="text-center text-blue-800 text-2xl font-bold">
+          Click to play
+        </h2>
+      </div>
     </div>
 
-    <h2>Click to play</h2>
-
     <script>
-      const btns = document.querySelectorAll(".btn");
+      const btns = document.getElementById("btn");
       const output = document.querySelector("h2");
       const options = ["rock", "paper", "scissors"];
       for (const btn of btns) {

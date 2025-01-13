@@ -3,14 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dabu Luxita</title>
+    <title>Pizzeria Stella</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module">
       import tailwindConfig from "/tailwind.config.js";
       tailwind.config = tailwindConfig;
     </script>
   </head>
-  <body>
-    <h1></h1>
+  <body class="bg-black border-double border-4">
+    <div class="flex justify-around flex-wrap p-5 gap-4 cursor-pointer">
+      <div class="text-3xl text-white">
+        <ul class="tracking-widest text-orange-100">
+          PIZZERIA
+        </ul>
+        <ul class="text-yellow-300 italic tracking-widest">
+          Stella
+        </ul>
+      </div>
+
+      <div class="text-white">
+        <ul class="text-yellow-300">
+          CONSEGNA A DOMICILIO :
+        </ul>
+        <div class="flex gap-4 text-yellow-300">
+          <ul>
+            376 0540553
+          </ul>
+          <li>095 8832260</li>
+        </div>
+        <div class="text-orange-100">VIALLE EUROPA - BIANCAVILLA CT</div>
+        <div class="text-orange-100 decoration-transparent">
+          CHIUSURA SETTIMANALE : MARTEDI
+        </div>
+      </div>
+    </div>
+
+    <div class="text-yellow-100 flex justify-between bg-red-700 gap-3 p-4">
+      <div class="flex gap-5">
+        <ul class="text-3xl">
+          PIZZE SPECIALI
+        </ul>
+        <ul>
+          NORMALE
+        </ul>
+        <ul>
+          MAXI
+        </ul>
+      </div>
+      <div>CALZONI</div>
+    </div>
   </body>
 </html>

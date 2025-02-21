@@ -11,7 +11,7 @@
     </script>
   </head>
   <body class="bg-black border-double border-4 w-[100%]">
-    <div class="flex justify-between flex-wrap p-8 gap-4 cursor-auto">
+    <div class="flex justify-between flex-wrap p-8 gap-4">
       <div class="text-3xl text-white">
         <ul class="tracking-widest text-orange-100">
           PIZZERIA
@@ -40,21 +40,19 @@
       </div>
     </div>
 
-    <div
-      class="grid grid-cols-3 gap-3 p-2 bg-black text-yellow-300 text-center"
-    >
+    <div class="grid grid-cols-3 p-2 bg-black text-yellow-300 text-center">
       <div
-        class="bg-red-600 p-4 text-2xl text-white tracking-wider overflow-hidden"
+        class="flex bg-red-600 p-4 text-2xl text-white tracking-wider items-center justify-center"
       >
         PIZZE SPECIALI
       </div>
       <div
-        class="bg-red-600 p-4 text-2xl text-white tracking-wider overflow-hidden"
+        class="flex bg-red-600 p-4 text-2xl text-white tracking-wider items-center justify-center"
       >
         NORMALE
       </div>
       <div
-        class="bg-red-600 p-4 text-2xl text-white tracking-wider overflow-hidden"
+        class="flex bg-red-600 p-4 text-2xl text-white tracking-wider items-center justify-center"
       >
         MAXI
       </div>
@@ -64,8 +62,8 @@
           mozzarella,coppata, uovo,scaglie di grana,pepe nero
         </div>
       </div>
-      <div class="p-4">€ 7,50</div>
-      <div class="p-4">€ 22,00</div>
+      <div class="p-4 flex items-center justify-center">€ 7,50</div>
+      <div class="p-4 flex items-center justify-center">€ 22,00</div>
       <div class="p-4">
         PICCANTINA
         <div class="text-white">
@@ -225,6 +223,14 @@
       </div>
       <div class="p-4">€ 8,50</div>
       <div class="p-4">€ 22,00</div>
+      <div
+        class="flex bg-red-600 text-2xl text-white tracking-wider justify-around w-screen"
+      >
+        <div class="flex items-center justify-center p-4">PIZZE MINI</div>
+        <div class="flex items-center justify-center p-4">
+          € 1,50 IN MENO RISPETTO ALLA PIZZA SCELTA
+        </div>
+      </div>
     </div>
   </body>
 </html>

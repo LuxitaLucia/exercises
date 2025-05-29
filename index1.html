@@ -8,12 +8,25 @@
   </head>
   <body>
     <div
-      class="h-screen flex justify-center items-center bg-red-500 gap-4 flex-col md:flex-row sm:bg-green-600 "
+      class="h-screen flex justify-center items-center  gap-4 flex-col md:flex-row sm:bg-green-600"
     >
-      <div class="w-[150px] h-[50px] bg-black text-white flex justify-center items-center">1</div>
-      <div class="w-[150px] h-[50px] bg-black text-white">2</div>
+      <div
+        class="w-[150px] h-[50px] bg-black text-white flex justify-center items-center"
+      >
+        1
+      </div>
+      <div class="w-[150px] h-[50px] bg-black text-white text-center">2</div>
       <div class="w-[150px] h-[50px] bg-black text-white">3</div>
       <div class="w-[150px] h-[50px] bg-black text-white">4</div>
+
+      <p id="demo">JavaScript can hide HTML elements.</p>
+
+      <button class="bg-black text-white p-4"
+        type="button"
+        onclick="document.getElementById('demo').style.display='none'"
+      >
+        Click Me!
+      </button>
     </div>
   </body>
 </html>

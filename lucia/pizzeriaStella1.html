@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria Stella</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+      import tailwindConfig from "/tailwind.config.js";
+      tailwind.config = tailwindConfig;
+    </script>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-red-800 p-4 shadow-2xl">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-2xl font-bold"
+          >🍕 Pizzeria <i class="text-yellow-300">Stella</i>
+        </a>
+
+        <!-- Meniu desktop -->
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-white hover:text-yellow-300">Home</a>
+          <a href="#" class="text-white hover:text-yellow-300">Menu</a>
+          <a href="#" class="text-white hover:text-yellow-300"> About us</a>
+          <a href="#" class="text-white hover:text-yellow-300">Contact</a>
+        </div>
+
+        <!-- Meniu mobil (burger) -->
+        <button id="menu-btn" class="md:hidden text-white text-2xl">
+          &#9776;
+        </button>
+      </div>
+
+      <!-- Meniu mobil ascuns -->
+      <div id="mobile-menu" class="hidden md:hidden bg-red-700 p-4">
+        <a href="#" class="block text-white py-2">Home</a>
+        <a href="#" class="block text-white py-2">Menu</a>
+        <a href="#" class="block text-white py-2">About us</a>
+        <a href="#" class="block text-white py-2">Contact</a>
+
+        <!-- Secțiunea "Despre Noi" în burger menu -->
+        <div class="text-white mt-4 border-t border-yellow-300 pt-4">
+          <div class="text-yellow-300 tracking-widest font-bold">
+            CONSEGNA A DOMICILIO:
+          </div>
+          <ul class="text-yellow-300 tracking-widest">
+            <li><a href="tel:3760540553">📞 376 0540553</a></li>
+            <li><a href="tel:0958832260">📞 095 8832260</a></li>
+          </ul>
+          <div class="text-orange-100 tracking-widest mt-2">
+            📍 VIALLE EUROPA - BIANCAVILLA CT
+          </div>
+          <div class="text-orange-100 tracking-widest">
+            ❌ CHIUSURA SETTIMANALE: MARTEDÌ
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Secțiune meniu -->
+    <section class="container mx-auto py-10">
+      <h2 class="text-3xl font-bold text-center text-red-700 mb-6">
+        🍕 Il nostro Menu
+      </h2>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- Pizza 1 -->
+        <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+          <img
+            src="../Carbonara.jpg"
+            alt="Pizza  CARBONARA"
+            class="mx-auto rounded-lg"
+          />
+          <h3 class="text-xl font-semibold mt-4">CARBONARA</h3>
+          <p class="text-gray-600">
+            mozzarella, coppata, uovo, scaglie di grana, pepe nero
+          </p>
+          <p class="text-red-600 font-bold mt-2">€ 7, 50</p>
+        </div>
+
+        <!-- Pizza 2 -->
+        <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+          <img
+            src="../Carbonara.jpg"
+            alt="Pizza  GUSTOSA"
+            class="mx-auto rounded-lg"
+          />
+          <h3 class="text-xl font-semibold mt-4">GUSTOSA</h3>
+          <p class="text-gray-600">
+            pomodoro, mozzarella, peperoni, salsiccia, cipolla, scaglie di grana
+          </p>
+          <p class="text-red-600 font-bold mt-2">€ 8, 50</p>
+        </div>
+
+        <!-- Pizza 3 -->
+        <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+          <img
+            src="../Carbonara.jpg"
+            alt="Pizza  RUSTICANA"
+            class="mx-auto rounded-lg"
+          />
+          <h3 class="text-xl font-semibold mt-4">RUSTICANA</h3>
+          <p class="text-gray-600">
+            pomodoro, mozzarella, acciughe, capperi, olive, cipolletta,
+            asparagi, coppata
+          </p>
+          <p class="text-red-600 font-bold mt-2">€ 9, 50</p>
+        </div>
+
+        <!-- Pizza 4 -->
+        <div class="bg-white p-4 shadow-lg rounded-lg text-center">
+          <img
+            src="../Carbonara.jpg"
+            alt="Pizza CONTADINA"
+            class="mx-auto rounded-lg"
+          />
+          <h3 class="text-xl font-semibold mt-4">CONTADINA</h3>
+          <p class="text-gray-600">
+            mozzarella, pomodoro, salame dolce, peperoni, carciofi, funghi
+            olive, cipolletta
+          </p>
+          <p class="text-red-600 font-bold mt-2">€ 9, 50</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Script pentru meniu mobil -->
+    <script>
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
